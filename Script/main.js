@@ -39,7 +39,7 @@ function buildMatrix() {
       else if (j === vars - 1) {
         const labelTd = document.createElement('td');
         labelTd.className = 'label';
-        labelTd.innerHTML = `x<sub>${j + 1}</sub> =`;
+        labelTd.innerHTML = `X<sub>${j + 1}</sub> =`;
         tr.appendChild(labelTd);
       }
     }
