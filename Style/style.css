@@ -89,6 +89,32 @@ button.build {
   color: #fff;
 }
 
+.method-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.method {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  margin-left: 6px;
+}
+
+.method.active {
+  background: #2563EB;
+  color: white;
+}
+
+.method:hover {
+  opacity: 0.9;
+}
+
 button:hover {
   opacity: 0.9;
   transform: translateY(-1px);
