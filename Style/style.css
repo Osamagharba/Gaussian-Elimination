@@ -205,6 +205,10 @@ button:hover {
   color: #059669;
 }
 
+.solution div {
+  display: inline-block;
+}
+
 #matrix_table input[type=number]::-webkit-inner-spin-button,
 #matrix_table input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;

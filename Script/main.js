@@ -161,11 +161,11 @@ function backSubstitutionSteps(A, addStepFn) {
   for (let i = Row - 1; i >= 0; i--) {
     // compute rhs and display step
     const rhs = A[i][n];
-    let line = `From equation R${i + 1}:  x${i + 1} = ${fmt(rhs)}`;
+    let line = `From equation R<sub>${i + 1}</sub>: X<sub>${i + 1}</sub> = ${fmt(rhs)}`;
     let sum = 0;
     for (let j = i + 1; j < n; j++) {
       if (Math.abs(A[i][j]) > 1e-12) {
-        line += ` - (${fmt(A[i][j])} * x${j + 1})`;
+        line += ` - (${fmt(A[i][j])} * X<sub>${j + 1}</sub>)`;
         sum += A[i][j] * X[j];
       }
     }
@@ -178,10 +178,10 @@ function backSubstitutionSteps(A, addStepFn) {
     card.className = 'step-card';
     const title = document.createElement('div');
     title.className = 'step-title';
-    title.textContent = `Back-substitution: R${i + 1}`;
+    title.innerHTML = `Back-substitution: R<sub>${i + 1}</sub>`;
     card.appendChild(title);
     const p = document.createElement('div');
-    p.textContent = line + ` = ${fmt(X[i])}`;
+    p.innerHTML = line + ` = ${fmt(X[i])}`;
     card.appendChild(p);
     output.appendChild(card);
   }
@@ -197,7 +197,7 @@ function backSubstitutionSteps(A, addStepFn) {
   solDiv.className = 'solution';
   for (let i = 0; i < n; i++) {
     const line = document.createElement('div');
-    line.textContent = `x${i + 1} = ${fmt(X[i])}`;
+    line.innerHTML = `X<sub>${i + 1}</sub> = ${fmt(X[i])}`;
     solDiv.appendChild(line);
   }
   finalCard.appendChild(solDiv);
@@ -311,7 +311,6 @@ function solveSystem() {
     return;
   }
 
-  // Unique solution
   if (currentMethod === 'jordan') {
     const card = document.createElement('div');
     card.className = 'step-card';
@@ -325,7 +324,7 @@ function solveSystem() {
       const leftZero = A[i].slice(0, m - 1).every(v => Math.abs(v) < 1e-12);
       if (leftZero && Math.abs(A[i][m - 1]) < 1e-12) continue;
       const line = document.createElement('div');
-      line.textContent = `X${i + 1} = ${fmt(A[i][m - 1])}`;
+      line.innerHTML = `X<sub>${i + 1}</sub> = ${fmt(A[i][m - 1])}`;
       solDiv.appendChild(line);
     }
     card.appendChild(solDiv);
